@@ -27,6 +27,8 @@ public class CompteController
 
     @GetMapping(path ="/comptes/{id}",
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @Operation(summary = "Method that return one COMPTE with his ID",
+            description = "return the compte that match the id in the path variable ")
     public Compte getCompteById(@PathVariable Long id)
     {
         return compteRepository.findById(id).get();
@@ -34,6 +36,8 @@ public class CompteController
 
     @PostMapping(path ="/comptes",
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @Operation(summary = "Method that create a new COMPTE in the data base",
+            description = "Adding new Compte")
     public Compte saveCompte(@RequestBody Compte compte)
     {
         return compteRepository.save(compte);
@@ -41,6 +45,8 @@ public class CompteController
 
     @PutMapping(path ="/comptes/{id}",
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @Operation(summary = "Method that update COMPTE with his ID",
+            description = "updating Compte that match the id in the path variable")
     public Compte updateCompte(@RequestBody Compte compte, @PathVariable Long id)
     {
         compte.setId(id);
@@ -49,6 +55,8 @@ public class CompteController
 
     @DeleteMapping(path ="/comptes/{id}",
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @Operation(summary = "Method that delete COMPTE with his ID",
+            description = "deleting Compte that match the id in the path variable")
     public void deleteCompte(@PathVariable Long id)
     {
         compteRepository.deleteById(id);
