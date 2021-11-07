@@ -2,6 +2,7 @@ package com.banque.controllers;
 
 import com.banque.entities.Compte;
 import com.banque.repositories.CompteRepository;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,8 @@ public class CompteController
 
     @GetMapping(path = "/comptes",
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @Operation(summary = "Method that return all COMPTE in the data base",
+            description = "return all compte objects the the client")
     public List<Compte> compteList()
     {
         return compteRepository.findAll();
