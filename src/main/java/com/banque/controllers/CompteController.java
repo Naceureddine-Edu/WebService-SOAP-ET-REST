@@ -17,7 +17,7 @@ public class CompteController
     CompteRepository compteRepository;
 
     @GetMapping(path = "/comptes",
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+            produces = {MediaType.APPLICATION_JSON_VALUE})
     @Operation(summary = "Method that return all COMPTE in the data base",
             description = "return all compte objects the the client")
     public List<Compte> compteList()
@@ -25,8 +25,8 @@ public class CompteController
         return compteRepository.findAll();
     }
 
-    @GetMapping(path ="/comptes/{id}",
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @GetMapping(path ="/comptes/{id}",produces = {MediaType.APPLICATION_JSON_VALUE})
+            /*produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})*/
     @Operation(summary = "Method that return one COMPTE with his ID",
             description = "return the compte that match the id in the path variable ")
     public Compte getCompteById(@PathVariable Long id)
@@ -34,8 +34,8 @@ public class CompteController
         return compteRepository.findById(id).get();
     }
 
-    @PostMapping(path ="/comptes",
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @PostMapping(path ="/comptes",produces = {MediaType.APPLICATION_JSON_VALUE})
+            /*produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})*/
     @Operation(summary = "Method that create a new COMPTE in the data base",
             description = "Adding new Compte")
     public Compte saveCompte(@RequestBody Compte compte)
@@ -43,8 +43,8 @@ public class CompteController
         return compteRepository.save(compte);
     }
 
-    @PutMapping(path ="/comptes/{id}",
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @PutMapping(path ="/comptes/{id}",produces = {MediaType.APPLICATION_JSON_VALUE})
+           /* produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})*/
     @Operation(summary = "Method that update COMPTE with his ID",
             description = "updating Compte that match the id in the path variable")
     public Compte updateCompte(@RequestBody Compte compte, @PathVariable Long id)
@@ -53,8 +53,8 @@ public class CompteController
         return compteRepository.save(compte);
     }
 
-    @DeleteMapping(path ="/comptes/{id}",
-            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @DeleteMapping(path ="/comptes/{id}",produces = {MediaType.APPLICATION_JSON_VALUE})
+            /*produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})*/
     @Operation(summary = "Method that delete COMPTE with his ID",
             description = "deleting Compte that match the id in the path variable")
     public void deleteCompte(@PathVariable Long id)
